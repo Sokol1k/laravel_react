@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+$api = app('Dingo\Api\Routing\Router');
+
+$path = 'App\Http\Controllers\Api\V1\\';
+
+$api->version('v1', ['middleware' => 'bindings'], function ($api) use ($path) {
+    $api->get('product', $path . 'ProductController@index');
+    $api->delete('product/{product}', $path . 'ProductController@destroy');
 });
