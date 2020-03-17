@@ -10,5 +10,6 @@ $factory->define(Product::class, function (Faker $faker) {
         'title' => $faker->text($maxNbChars = 50),
         'description' => $faker->text($maxNbChars = 150),
         'price' => 15,
+        'total_price' => 15
     ];
 });
