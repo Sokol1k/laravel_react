@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { setProducts } from "../../store/product/actions";
+import services from "../../services";
+import CartItem from "../CartItem";
 
 import "./style.css";
 
@@ -10,9 +13,15 @@ class Cart extends Component {
         this.totalPrice = this.totalPrice.bind(this);
     }
 
-    totalPrice() {
+    async componentWillMount() {
+        await services.get("product").then(response => {
+            this.props.setProducts(response.data.products);
+        });
+    }
+
+    totalPrice(products) {
         let result = 0;
-        this.props.products.map(product => {
+        products.map(product => {
             result += product.price;
         });
         return result.toFixed(2);
@@ -21,9 +30,12 @@ class Cart extends Component {
     render() {
         return (
             <div className="container">
+                {this.props.products.map(product => (
+                    <CartItem key={product.id} {...product} />
+                ))}
                 <div className="cart__bottom">
                     <h2 className="cart__total-price">
-                        {this.totalPrice() + " €"}
+                        {this.totalPrice(this.props.products) + " €"}
                     </h2>
                     <div className="cart__btn-content">
                         <Link className="cart__btn" to="/shipping">
@@ -42,4 +54,8 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(Cart);
+const mapDispatchToProps = {
+    setProducts
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);

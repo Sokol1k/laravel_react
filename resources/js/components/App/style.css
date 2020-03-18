@@ -6,6 +6,15 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
+h2, h3 {
+    margin: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
 .container {
     max-width: 900px;
     margin: 0 auto;
