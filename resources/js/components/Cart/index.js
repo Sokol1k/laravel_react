@@ -30,9 +30,13 @@ class Cart extends Component {
     render() {
         return (
             <div className="container">
-                {this.props.products.map(product => (
-                    <CartItem key={product.id} {...product} />
-                ))}
+                {this.props.products.length ? (
+                    this.props.products.map(product => (
+                        <CartItem key={product.id} {...product} />
+                    ))
+                ) : (
+                    <CartItem />
+                )}
                 <div className="cart__bottom">
                     <h2 className="cart__total-price">
                         {this.totalPrice(this.props.products) + " €"}

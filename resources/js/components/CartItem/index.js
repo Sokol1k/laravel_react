@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { changeQuantityProduct } from "../../store/product/actions";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { connect } from "react-redux";
 import "./style.css";
 
@@ -59,9 +60,9 @@ class CartItem extends Component {
                         ></img>
                     </div>
                     <div className="cart-item__content">
-                        <h3>{title}</h3>
+                        <h3>{title || <Skeleton />}</h3>
                         <div className="cart-item__description">
-                            {description}
+                            {description || <Skeleton count={3} />}
                         </div>
                     </div>
                 </div>
@@ -85,7 +86,11 @@ class CartItem extends Component {
                                 +
                             </button>
                         </div>
-                        <h3>{(quantity * price).toFixed(2) + " €"}</h3>
+                        <h3>
+                            {quantity * price
+                                ? (quantity * price).toFixed(2) + " €"
+                                : "0 €"}
+                        </h3>
                     </div>
                 </div>
             </div>
