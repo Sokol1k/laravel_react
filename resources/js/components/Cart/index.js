@@ -22,7 +22,7 @@ class Cart extends Component {
     totalPrice(products) {
         let result = 0;
         products.map(product => {
-            result += product.price;
+            result += product.total_price;
         });
         return result.toFixed(2);
     }

@@ -1,9 +1,51 @@
 import React, { Component } from "react";
 import { FaTrashAlt } from "react-icons/fa";
+import { changeQuantityProduct } from "../../store/product/actions";
 import { connect } from "react-redux";
 import "./style.css";
 
 class CartItem extends Component {
+    constructor(props) {
+        super(props);
+        this.handleQuantityChange = this.handleQuantityChange.bind(this);
+        this.handleQuantityIncrement = this.handleQuantityIncrement.bind(this);
+        this.handleQuantityDecrement = this.handleQuantityDecrement.bind(this);
+    }
+
+    handleQuantityChange(event) {
+        const target = event.target;
+        let value = undefined;
+        if (target.value < 1) {
+            value = 1;
+        } else if (target.value > 50) {
+            value = 50;
+        } else {
+            value = target.value;
+        }
+        this.props.changeQuantityProduct({
+            id: this.props.id,
+            quantity: value
+        });
+    }
+
+    handleQuantityIncrement() {
+        if (this.props.quantity >= 1 && this.props.quantity < 50) {
+            this.props.changeQuantityProduct({
+                id: this.props.id,
+                quantity: this.props.quantity + 1
+            });
+        }
+    }
+
+    handleQuantityDecrement() {
+        if (this.props.quantity > 1 && this.props.quantity <= 50) {
+            this.props.changeQuantityProduct({
+                id: this.props.id,
+                quantity: this.props.quantity - 1
+            });
+        }
+    }
+
     render() {
         const { id, title, description, quantity, price } = this.props;
         return (
@@ -43,7 +85,7 @@ class CartItem extends Component {
                                 +
                             </button>
                         </div>
-                        <h3>{price.toFixed(2) + " €"}</h3>
+                        <h3>{(quantity * price).toFixed(2) + " €"}</h3>
                     </div>
                 </div>
             </div>
@@ -51,4 +93,8 @@ class CartItem extends Component {
     }
 }
 
-export default CartItem;
+const mapDispatchToProps = {
+    changeQuantityProduct
+};
+
+export default connect(null, mapDispatchToProps)(CartItem);

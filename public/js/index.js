@@ -46558,7 +46558,7 @@ var Cart = /*#__PURE__*/function (_Component) {
     value: function totalPrice(products) {
       var result = 0;
       products.map(function (product) {
-        result += product.price;
+        result += product.total_price;
       });
       return result.toFixed(2);
     }
@@ -46642,9 +46642,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style.css */ "./resources/js/components/CartItem/style.css");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _store_product_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../store/product/actions */ "./resources/js/store/product/actions.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./style.css */ "./resources/js/components/CartItem/style.css");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -46655,9 +46656,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -46668,16 +46669,62 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var CartItem = /*#__PURE__*/function (_Component) {
   _inherits(CartItem, _Component);
 
-  function CartItem() {
+  function CartItem(props) {
+    var _this;
+
     _classCallCheck(this, CartItem);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(CartItem).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(CartItem).call(this, props));
+    _this.handleQuantityChange = _this.handleQuantityChange.bind(_assertThisInitialized(_this));
+    _this.handleQuantityIncrement = _this.handleQuantityIncrement.bind(_assertThisInitialized(_this));
+    _this.handleQuantityDecrement = _this.handleQuantityDecrement.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(CartItem, [{
+    key: "handleQuantityChange",
+    value: function handleQuantityChange(event) {
+      var target = event.target;
+      var value = undefined;
+
+      if (target.value < 1) {
+        value = 1;
+      } else if (target.value > 50) {
+        value = 50;
+      } else {
+        value = target.value;
+      }
+
+      this.props.changeQuantityProduct({
+        id: this.props.id,
+        quantity: value
+      });
+    }
+  }, {
+    key: "handleQuantityIncrement",
+    value: function handleQuantityIncrement() {
+      if (this.props.quantity >= 1 && this.props.quantity < 50) {
+        this.props.changeQuantityProduct({
+          id: this.props.id,
+          quantity: this.props.quantity + 1
+        });
+      }
+    }
+  }, {
+    key: "handleQuantityDecrement",
+    value: function handleQuantityDecrement() {
+      if (this.props.quantity > 1 && this.props.quantity <= 50) {
+        this.props.changeQuantityProduct({
+          id: this.props.id,
+          quantity: this.props.quantity - 1
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -46718,14 +46765,17 @@ var CartItem = /*#__PURE__*/function (_Component) {
         onChange: this.handleQuantityChange
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleQuantityIncrement
-      }, "+")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price.toFixed(2) + " €"))));
+      }, "+")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, (quantity * price).toFixed(2) + " €"))));
     }
   }]);
 
   return CartItem;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (CartItem);
+var mapDispatchToProps = {
+  changeQuantityProduct: _store_product_actions__WEBPACK_IMPORTED_MODULE_2__["changeQuantityProduct"]
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(null, mapDispatchToProps)(CartItem));
 
 /***/ }),
 
@@ -46907,18 +46957,27 @@ Object.freeze(instance);
 /*!***********************************************!*\
   !*** ./resources/js/store/product/actions.js ***!
   \***********************************************/
-/*! exports provided: SET_PRODUCTS, setProducts */
+/*! exports provided: SET_PRODUCTS, CHANGE_QUANTITY_PRODUCT, setProducts, changeQuantityProduct */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_PRODUCTS", function() { return SET_PRODUCTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHANGE_QUANTITY_PRODUCT", function() { return CHANGE_QUANTITY_PRODUCT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setProducts", function() { return setProducts; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "changeQuantityProduct", function() { return changeQuantityProduct; });
 var SET_PRODUCTS = "SET_PRODUCTS";
+var CHANGE_QUANTITY_PRODUCT = "CHANGE_QUANTITY_PRODUCT";
 var setProducts = function setProducts(products) {
   return {
     type: SET_PRODUCTS,
     payload: products
+  };
+};
+var changeQuantityProduct = function changeQuantityProduct(product) {
+  return {
+    type: CHANGE_QUANTITY_PRODUCT,
+    payload: product
   };
 };
 
@@ -46935,6 +46994,14 @@ var setProducts = function setProducts(products) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "productsReducer", function() { return productsReducer; });
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actions */ "./resources/js/store/product/actions.js");
+function _toArray(arr) { return _arrayWithHoles(arr) || _iterableToArray(arr) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 var productsReducer = function productsReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -46943,6 +47010,18 @@ var productsReducer = function productsReducer() {
   switch (action.type) {
     case _actions__WEBPACK_IMPORTED_MODULE_0__["SET_PRODUCTS"]:
       return action.payload;
+
+    case _actions__WEBPACK_IMPORTED_MODULE_0__["CHANGE_QUANTITY_PRODUCT"]:
+      var _state = _toArray(state),
+          products = _state.slice(0);
+
+      products.forEach(function (product) {
+        if (product.id == action.payload.id) {
+          product.quantity = action.payload.quantity;
+          product.total_price = product.quantity * product.price;
+        }
+      });
+      return products;
 
     default:
       return state;
