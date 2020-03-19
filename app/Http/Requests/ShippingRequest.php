@@ -26,9 +26,10 @@ class ShippingRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:150'],
-            'phone' => ['nullable','string', 'min:17', 'max:17'],
+            'phone' => ['nullable', 'string', 'min:17', 'max:17'],
             'email' => ['nullable', 'string', 'email', 'max:255'],
             'shipping_options' => ['required', 'string'],
+            'total_price' => ['required']
         ];
     }
 }

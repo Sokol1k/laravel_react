@@ -51,10 +51,16 @@ class Shipping extends Component {
                 address: this.state.address,
                 phone: this.state.phone || null,
                 email: this.state.email || null,
-                shipping_options: this.state.shipping_options
+                shipping_options: this.state.shipping_options,
+                total_price: +this.totalPrice(this.props.products)
             };
+            if (data.shipping_options == "Express shipping") {
+                data.total_price +=  9.99;
+            } else if (data.shipping_options == "Courier shipping") {
+                data.total_price += 19.99;
+            }
+
             await services.post("shipping", data).then(response => {
-                alert("Order is processed!");
                 this.setState({
                     name: "",
                     address: "",
@@ -62,7 +68,7 @@ class Shipping extends Component {
                     email: "",
                     shipping_options: "Free shipping"
                 });
-                document.location = '/cart';
+                document.location = "/cart";
             });
         } else {
             this.validator.showMessages();
@@ -185,7 +191,9 @@ class Shipping extends Component {
                             Shipping options
                         </label>
                         {this.totalPrice(this.props.products) >= 300 ? (
-                            <div className="free-shipping">Free express shipping!</div>
+                            <div className="free-shipping">
+                                Free express shipping!
+                            </div>
                         ) : (
                             <div>
                                 <select
@@ -223,7 +231,7 @@ class Shipping extends Component {
 
 const mapStateToProps = state => {
     return {
-        products: state.products
+        products: state.products.products
     };
 };
 

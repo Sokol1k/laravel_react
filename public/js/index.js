@@ -49350,7 +49350,7 @@ var Shipping = /*#__PURE__*/function (_Component) {
                 event.preventDefault();
 
                 if (!this.validator.allValid()) {
-                  _context.next = 7;
+                  _context.next = 8;
                   break;
                 }
 
@@ -49359,12 +49359,18 @@ var Shipping = /*#__PURE__*/function (_Component) {
                   address: this.state.address,
                   phone: this.state.phone || null,
                   email: this.state.email || null,
-                  shipping_options: this.state.shipping_options
+                  shipping_options: this.state.shipping_options,
+                  total_price: +this.totalPrice(this.props.products)
                 };
-                _context.next = 5;
-                return _services__WEBPACK_IMPORTED_MODULE_5__["default"].post("shipping", data).then(function (response) {
-                  alert("Order is processed!");
 
+                if (data.shipping_options == "Express shipping") {
+                  data.total_price += 9.99;
+                } else if (data.shipping_options == "Courier shipping") {
+                  data.total_price += 19.99;
+                }
+
+                _context.next = 6;
+                return _services__WEBPACK_IMPORTED_MODULE_5__["default"].post("shipping", data).then(function (response) {
                   _this2.setState({
                     name: "",
                     address: "",
@@ -49373,21 +49379,21 @@ var Shipping = /*#__PURE__*/function (_Component) {
                     shipping_options: "Free shipping"
                   });
 
-                  document.location = '/cart';
+                  document.location = "/cart";
                 });
 
-              case 5:
-                _context.next = 10;
+              case 6:
+                _context.next = 11;
                 break;
 
-              case 7:
+              case 8:
                 this.validator.showMessages();
                 this.forceUpdate();
                 this.setState({
                   disabled: true
                 });
 
-              case 10:
+              case 11:
               case "end":
                 return _context.stop();
             }
@@ -49500,7 +49506,7 @@ var Shipping = /*#__PURE__*/function (_Component) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    products: state.products
+    products: state.products.products
   };
 };
 
@@ -49737,16 +49743,11 @@ var Service = /*#__PURE__*/function () {
           break;
 
         default:
-          this.redirectTo(document, "/404");
+          document.location = '/404';
           break;
       }
 
       return Promise.reject(error);
-    }
-  }, {
-    key: "redirectTo",
-    value: function redirectTo(document, path) {
-      document.location = path;
     }
   }, {
     key: "get",

@@ -28,14 +28,10 @@ class Service {
             case 422:
                 break;
             default:
-                this.redirectTo(document, "/404");
+                document.location = '/404'
                 break;
         }
         return Promise.reject(error);
-    }
-
-    redirectTo(document, path) {
-        document.location = path;
     }
 
     get(path, params) {
