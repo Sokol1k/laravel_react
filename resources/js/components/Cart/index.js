@@ -3,19 +3,28 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { setProducts } from "../../store/product/actions";
 import services from "../../services";
-import CartItem from "../CartItem";
+import ShowCartItem from '../../elements/ShowCartItem';
 
 import "./style.css";
 
 class Cart extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            haveProducts: true
+        }
         this.totalPrice = this.totalPrice.bind(this);
     }
 
     async componentWillMount() {
         await services.get("product").then(response => {
-            this.props.setProducts(response.data.products);
+            if (response.data.products) {
+                this.props.setProducts(response.data.products);
+            } else {
+                this.setState({
+                    haveProducts: false
+                })
+            }
         });
     }
 
@@ -30,13 +39,7 @@ class Cart extends Component {
     render() {
         return (
             <div className="container">
-                {this.props.products.length ? (
-                    this.props.products.map(product => (
-                        <CartItem key={product.id} {...product} />
-                    ))
-                ) : (
-                    <CartItem />
-                )}
+                <ShowCartItem haveProducts={this.state.haveProducts} products={this.props.products} />
                 <div className="cart__bottom">
                     <h2 className="cart__total-price">
                         {this.totalPrice(this.props.products) + " €"}

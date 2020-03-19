@@ -17,13 +17,14 @@ class CartItem extends Component {
         this.handleQuantityIncrement = this.handleQuantityIncrement.bind(this);
         this.handleQuantityDecrement = this.handleQuantityDecrement.bind(this);
         this.handleDeleteProduct = this.handleDeleteProduct.bind(this);
+        this.checkQuantityProduct = this.checkQuantityProduct.bind(this);
     }
 
     handleQuantityChange(event) {
         const target = event.target;
         let value = undefined;
         if (target.value < 1) {
-            value = 1;
+            value = "";
         } else if (target.value > 50) {
             value = 50;
         } else {
@@ -39,7 +40,7 @@ class CartItem extends Component {
         if (this.props.quantity >= 1 && this.props.quantity < 50) {
             this.props.changeQuantityProduct({
                 id: this.props.id,
-                quantity: this.props.quantity + 1
+                quantity: +this.props.quantity + 1
             });
         }
     }
@@ -48,7 +49,7 @@ class CartItem extends Component {
         if (this.props.quantity > 1 && this.props.quantity <= 50) {
             this.props.changeQuantityProduct({
                 id: this.props.id,
-                quantity: this.props.quantity - 1
+                quantity: +this.props.quantity - 1
             });
         }
     }
@@ -57,6 +58,15 @@ class CartItem extends Component {
         await services.delete(`product/${this.props.id}`).then(response => {
             this.props.deleteProduct(this.props.id);
         });
+    }
+
+    checkQuantityProduct() {
+        if (this.props.quantity == "") {
+            this.props.changeQuantityProduct({
+                id: this.props.id,
+                quantity: 1
+            });
+        }
     }
 
     render() {
@@ -96,6 +106,7 @@ class CartItem extends Component {
                                 max="50"
                                 value={quantity}
                                 onChange={this.handleQuantityChange}
+                                onBlur={this.checkQuantityProduct}
                             />
                             <button onClick={this.handleQuantityIncrement}>
                                 +
