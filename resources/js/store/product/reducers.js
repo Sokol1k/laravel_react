@@ -1,16 +1,25 @@
 import {
     SET_PRODUCTS,
     CHANGE_QUANTITY_PRODUCT,
-    DELETE_PRODUCT
+    DELETE_PRODUCT,
+    CHANGE_HAVE_PRODUCTS
 } from "./actions";
 
-export const productsReducer = (state = [], action) => {
+const defaultState = {
+    haveProducts: true,
+    products: []
+}
+
+export const productsReducer = (state = defaultState, action) => {
     switch (action.type) {
         case SET_PRODUCTS: {
-            return action.payload;
+            return {
+                ...state,
+                products: action.payload
+            };
         }
         case CHANGE_QUANTITY_PRODUCT: {
-            const [...products] = state;
+            const [...products] = state.products;
             products.forEach(product => {
                 if (product.id == action.payload.id) {
                     product.quantity = action.payload.quantity;
@@ -18,10 +27,13 @@ export const productsReducer = (state = [], action) => {
                 }
             });
 
-            return products;
+            return {
+                ...state,
+                products: products
+            };
         }
         case DELETE_PRODUCT: {
-            const [...products] = state;
+            const [...products] = state.products;
             let index = undefined;
             products.map((product, i) => {
                 if(product.id == action.payload) {
@@ -30,7 +42,16 @@ export const productsReducer = (state = [], action) => {
             })
             products.splice(index, 1);
 
-            return products;
+            return {
+                haveProducts: Boolean(products.length),
+                products: products
+            };
+        }
+        case CHANGE_HAVE_PRODUCTS: {
+            return {
+                ...state,
+                haveProducts: action.payload
+            }
         }
         default:
             return state;

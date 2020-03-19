@@ -1,18 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { setProducts } from "../../store/product/actions";
+import { setProducts, changeHaveProducts } from "../../store/product/actions";
 import services from "../../services";
-import ShowCartItem from '../../elements/ShowCartItem';
+import ShowCartItem from "../../elements/ShowCartItem";
 
 import "./style.css";
 
 class Cart extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            haveProducts: true
-        }
+
         this.totalPrice = this.totalPrice.bind(this);
     }
 
@@ -21,9 +19,7 @@ class Cart extends Component {
             if (response.data.products) {
                 this.props.setProducts(response.data.products);
             } else {
-                this.setState({
-                    haveProducts: false
-                })
+                this.props.changeHaveProducts(false);
             }
         });
     }
@@ -33,21 +29,27 @@ class Cart extends Component {
         products.map(product => {
             result += product.total_price;
         });
+
         return result.toFixed(2);
     }
 
     render() {
         return (
             <div className="container">
-                <ShowCartItem haveProducts={this.state.haveProducts} products={this.props.products} />
+                <ShowCartItem
+                    haveProducts={this.props.haveProducts}
+                    products={this.props.products}
+                />
                 <div className="cart__bottom">
                     <h2 className="cart__total-price">
                         {this.totalPrice(this.props.products) + " €"}
                     </h2>
                     <div className="cart__btn-content">
-                        <Link className="cart__btn" to="/shipping">
-                            Buy
-                        </Link>
+                        {this.props.haveProducts ? (
+                            <Link className="cart__btn" to="/shipping">
+                                Buy
+                            </Link>
+                        ) : null}
                     </div>
                 </div>
             </div>
@@ -57,12 +59,14 @@ class Cart extends Component {
 
 const mapStateToProps = state => {
     return {
-        products: state.products
+        haveProducts: state.products.haveProducts,
+        products: state.products.products
     };
 };
 
 const mapDispatchToProps = {
-    setProducts
+    setProducts,
+    changeHaveProducts
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);

@@ -48849,9 +48849,6 @@ var Cart = /*#__PURE__*/function (_Component) {
     _classCallCheck(this, Cart);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Cart).call(this, props));
-    _this.state = {
-      haveProducts: true
-    };
     _this.totalPrice = _this.totalPrice.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -48871,9 +48868,7 @@ var Cart = /*#__PURE__*/function (_Component) {
                   if (response.data.products) {
                     _this2.props.setProducts(response.data.products);
                   } else {
-                    _this2.setState({
-                      haveProducts: false
-                    });
+                    _this2.props.changeHaveProducts(false);
                   }
                 });
 
@@ -48906,7 +48901,7 @@ var Cart = /*#__PURE__*/function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "container"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_elements_ShowCartItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        haveProducts: this.state.haveProducts,
+        haveProducts: this.props.haveProducts,
         products: this.props.products
       }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "cart__bottom"
@@ -48914,10 +48909,10 @@ var Cart = /*#__PURE__*/function (_Component) {
         className: "cart__total-price"
       }, this.totalPrice(this.props.products) + " €"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "cart__btn-content"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      }, this.props.haveProducts ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         className: "cart__btn",
         to: "/shipping"
-      }, "Buy"))));
+      }, "Buy") : null)));
     }
   }]);
 
@@ -48926,12 +48921,14 @@ var Cart = /*#__PURE__*/function (_Component) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    products: state.products
+    haveProducts: state.products.haveProducts,
+    products: state.products.products
   };
 };
 
 var mapDispatchToProps = {
-  setProducts: _store_product_actions__WEBPACK_IMPORTED_MODULE_4__["setProducts"]
+  setProducts: _store_product_actions__WEBPACK_IMPORTED_MODULE_4__["setProducts"],
+  changeHaveProducts: _store_product_actions__WEBPACK_IMPORTED_MODULE_4__["changeHaveProducts"]
 };
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps, mapDispatchToProps)(Cart));
 
@@ -49791,7 +49788,7 @@ Object.freeze(instance);
 /*!***********************************************!*\
   !*** ./resources/js/store/product/actions.js ***!
   \***********************************************/
-/*! exports provided: SET_PRODUCTS, CHANGE_QUANTITY_PRODUCT, DELETE_PRODUCT, setProducts, changeQuantityProduct, deleteProduct */
+/*! exports provided: SET_PRODUCTS, CHANGE_QUANTITY_PRODUCT, DELETE_PRODUCT, CHANGE_HAVE_PRODUCTS, setProducts, changeQuantityProduct, deleteProduct, changeHaveProducts */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -49799,12 +49796,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_PRODUCTS", function() { return SET_PRODUCTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHANGE_QUANTITY_PRODUCT", function() { return CHANGE_QUANTITY_PRODUCT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_PRODUCT", function() { return DELETE_PRODUCT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHANGE_HAVE_PRODUCTS", function() { return CHANGE_HAVE_PRODUCTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setProducts", function() { return setProducts; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "changeQuantityProduct", function() { return changeQuantityProduct; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteProduct", function() { return deleteProduct; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "changeHaveProducts", function() { return changeHaveProducts; });
 var SET_PRODUCTS = "SET_PRODUCTS";
 var CHANGE_QUANTITY_PRODUCT = "CHANGE_QUANTITY_PRODUCT";
 var DELETE_PRODUCT = "DELETE_PRODUCT";
+var CHANGE_HAVE_PRODUCTS = 'CHANGE_HAVE_PRODUCTS';
 var setProducts = function setProducts(products) {
   return {
     type: SET_PRODUCTS,
@@ -49821,6 +49821,12 @@ var deleteProduct = function deleteProduct(id) {
   return {
     type: DELETE_PRODUCT,
     payload: id
+  };
+};
+var changeHaveProducts = function changeHaveProducts(value) {
+  return {
+    type: CHANGE_HAVE_PRODUCTS,
+    paload: value
   };
 };
 
@@ -49845,21 +49851,33 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+var defaultState = {
+  haveProducts: true,
+  products: []
+};
 var productsReducer = function productsReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
     case _actions__WEBPACK_IMPORTED_MODULE_0__["SET_PRODUCTS"]:
       {
-        return action.payload;
+        return _objectSpread({}, state, {
+          products: action.payload
+        });
       }
 
     case _actions__WEBPACK_IMPORTED_MODULE_0__["CHANGE_QUANTITY_PRODUCT"]:
       {
-        var _state = _toArray(state),
-            products = _state.slice(0);
+        var _state$products = _toArray(state.products),
+            products = _state$products.slice(0);
 
         products.forEach(function (product) {
           if (product.id == action.payload.id) {
@@ -49867,13 +49885,15 @@ var productsReducer = function productsReducer() {
             product.total_price = product.quantity * product.price;
           }
         });
-        return products;
+        return _objectSpread({}, state, {
+          products: products
+        });
       }
 
     case _actions__WEBPACK_IMPORTED_MODULE_0__["DELETE_PRODUCT"]:
       {
-        var _state2 = _toArray(state),
-            _products = _state2.slice(0);
+        var _state$products2 = _toArray(state.products),
+            _products = _state$products2.slice(0);
 
         var index = undefined;
 
@@ -49885,7 +49905,17 @@ var productsReducer = function productsReducer() {
 
         _products.splice(index, 1);
 
-        return _products;
+        return {
+          haveProducts: Boolean(_products.length),
+          products: _products
+        };
+      }
+
+    case _actions__WEBPACK_IMPORTED_MODULE_0__["CHANGE_HAVE_PRODUCTS"]:
+      {
+        return _objectSpread({}, state, {
+          haveProducts: action.payload
+        });
       }
 
     default:
