@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 
 import Cart from "../Cart";
+import Shipping from "../Shipping";
 import "./style.css";
 
 class App extends Component {
@@ -12,7 +13,7 @@ class App extends Component {
                     <Cart />
                 </Route>
                 <Route path="/shipping">
-                    <div>shipping</div>
+                    <Shipping />
                 </Route>
             </BrowserRouter>
         );
