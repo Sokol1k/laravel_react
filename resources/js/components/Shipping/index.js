@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SimpleReactValidator from "simple-react-validator";
+import MaskedInput from "react-text-mask";
 import services from "../../services";
 
 import "./style.css";
@@ -12,7 +13,8 @@ class Shipping extends Component {
             address: "",
             phone: "",
             email: "",
-            shipping_options: "Free shipping"
+            shipping_options: "Free shipping",
+            disabled: false
         };
         this.validator = new SimpleReactValidator();
         this.handleChangeForm = this.handleChangeForm.bind(this);
@@ -23,11 +25,15 @@ class Shipping extends Component {
         this.setState({
             [event.target.name]: event.target.value
         });
+        if (this.validator.allValid()) {
+            this.setState({
+                disabled: false
+            });
+        }
     }
 
     async handleSubmit(event) {
         event.preventDefault();
-
         if (this.validator.allValid()) {
             let data = {
                 name: this.state.name,
@@ -49,6 +55,9 @@ class Shipping extends Component {
         } else {
             this.validator.showMessages();
             this.forceUpdate();
+            this.setState({
+                disabled: true
+            });
         }
     }
 
@@ -97,13 +106,32 @@ class Shipping extends Component {
                     <div className="shipping-form-group">
                         <label htmlFor="phone">Phone</label>
                         <div>
-                            <input
-                                type="number"
+                            <MaskedInput
                                 name="phone"
                                 className="shipping-input"
+                                mask={[
+                                    "+",
+                                    "3",
+                                    "8",
+                                    "(",
+                                    /[0-9]/,
+                                    /\d/,
+                                    /\d/,
+                                    ")",
+                                    /\d/,
+                                    /\d/,
+                                    /\d/,
+                                    "-",
+                                    /\d/,
+                                    /\d/,
+                                    "-",
+                                    /\d/,
+                                    /\d/
+                                ]}
+                                placeholder="+38"
                                 value={this.state.phone}
                                 onChange={this.handleChangeForm}
-                            ></input>
+                            ></MaskedInput>
                             <small className="shipping-error">
                                 {this.validator.message(
                                     "phone",
@@ -160,6 +188,7 @@ class Shipping extends Component {
                             className="shipping-btn"
                             type="submit"
                             value="PAY"
+                            disabled={this.state.disabled}
                         />
                     </div>
                 </form>
