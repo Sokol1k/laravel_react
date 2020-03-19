@@ -49147,9 +49147,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var simple_react_validator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(simple_react_validator__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_text_mask__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-text-mask */ "./node_modules/react-text-mask/dist/reactTextMask.js");
 /* harmony import */ var react_text_mask__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_text_mask__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services */ "./resources/js/services.js");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./style.css */ "./resources/js/components/Shipping/style.css");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services */ "./resources/js/services.js");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./style.css */ "./resources/js/components/Shipping/style.css");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_6__);
 
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -49182,6 +49183,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var Shipping = /*#__PURE__*/function (_Component) {
   _inherits(Shipping, _Component);
 
@@ -49202,10 +49204,20 @@ var Shipping = /*#__PURE__*/function (_Component) {
     _this.validator = new simple_react_validator__WEBPACK_IMPORTED_MODULE_2___default.a();
     _this.handleChangeForm = _this.handleChangeForm.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.totalPrice = _this.totalPrice.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Shipping, [{
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      if (this.totalPrice(this.props.products) >= 300) {
+        this.setState({
+          shipping_options: "Free express shipping"
+        });
+      }
+    }
+  }, {
     key: "handleChangeForm",
     value: function handleChangeForm(event) {
       this.setState(_defineProperty({}, event.target.name, event.target.value));
@@ -49242,7 +49254,7 @@ var Shipping = /*#__PURE__*/function (_Component) {
                   shipping_options: this.state.shipping_options
                 };
                 _context.next = 5;
-                return _services__WEBPACK_IMPORTED_MODULE_4__["default"].post("shipping", data).then(function (response) {
+                return _services__WEBPACK_IMPORTED_MODULE_5__["default"].post("shipping", data).then(function (response) {
                   alert("Order is processed!");
 
                   _this2.setState({
@@ -49252,6 +49264,8 @@ var Shipping = /*#__PURE__*/function (_Component) {
                     email: "",
                     shipping_options: "Free shipping"
                   });
+
+                  document.location = '/cart';
                 });
 
               case 5:
@@ -49279,6 +49293,15 @@ var Shipping = /*#__PURE__*/function (_Component) {
 
       return handleSubmit;
     }()
+  }, {
+    key: "totalPrice",
+    value: function totalPrice(products) {
+      var result = 0;
+      products.map(function (product) {
+        result += product.total_price;
+      });
+      return result.toFixed(2);
+    }
   }, {
     key: "render",
     value: function render() {
@@ -49340,7 +49363,7 @@ var Shipping = /*#__PURE__*/function (_Component) {
         className: "shipping-form-group"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
         htmlFor: "shipping_options"
-      }, "Shipping options"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
+      }, "Shipping options"), this.totalPrice(this.props.products) >= 300 ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, "Free express shipping!") : react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
         name: "shipping_options",
         className: "shipping-select",
         value: this.state.shipping_options,
@@ -49365,7 +49388,13 @@ var Shipping = /*#__PURE__*/function (_Component) {
   return Shipping;
 }(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Shipping);
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    products: state.products
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["connect"])(mapStateToProps)(Shipping));
 
 /***/ }),
 

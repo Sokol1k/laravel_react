@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SimpleReactValidator from "simple-react-validator";
 import MaskedInput from "react-text-mask";
+import { connect } from "react-redux";
 import services from "../../services";
 
 import "./style.css";
@@ -19,6 +20,15 @@ class Shipping extends Component {
         this.validator = new SimpleReactValidator();
         this.handleChangeForm = this.handleChangeForm.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.totalPrice = this.totalPrice.bind(this);
+    }
+
+    componentWillMount() {
+        if (this.totalPrice(this.props.products) >= 300) {
+            this.setState({
+                shipping_options: "Free express shipping"
+            });
+        }
     }
 
     handleChangeForm(event) {
@@ -51,6 +61,7 @@ class Shipping extends Component {
                     email: "",
                     shipping_options: "Free shipping"
                 });
+                document.location = '/cart';
             });
         } else {
             this.validator.showMessages();
@@ -59,6 +70,14 @@ class Shipping extends Component {
                 disabled: true
             });
         }
+    }
+
+    totalPrice(products) {
+        let result = 0;
+        products.map(product => {
+            result += product.total_price;
+        });
+        return result.toFixed(2);
     }
 
     render() {
@@ -164,24 +183,28 @@ class Shipping extends Component {
                         <label htmlFor="shipping_options">
                             Shipping options
                         </label>
-                        <div>
-                            <select
-                                name="shipping_options"
-                                className="shipping-select"
-                                value={this.state.shipping_options}
-                                onChange={this.handleChangeForm}
-                            >
-                                <option value="Free shipping">
-                                    Free shipping
-                                </option>
-                                <option value="Express shipping">
-                                    Express shipping- additional 9.99 €
-                                </option>
-                                <option value="Courier shipping">
-                                    Courier shipping - additional 19.99 €
-                                </option>
-                            </select>
-                        </div>
+                        {this.totalPrice(this.props.products) >= 300 ? (
+                            <div>Free express shipping!</div>
+                        ) : (
+                            <div>
+                                <select
+                                    name="shipping_options"
+                                    className="shipping-select"
+                                    value={this.state.shipping_options}
+                                    onChange={this.handleChangeForm}
+                                >
+                                    <option value="Free shipping">
+                                        Free shipping
+                                    </option>
+                                    <option value="Express shipping">
+                                        Express shipping- additional 9.99 €
+                                    </option>
+                                    <option value="Courier shipping">
+                                        Courier shipping - additional 19.99 €
+                                    </option>
+                                </select>
+                            </div>
+                        )}
                     </div>
                     <div className="shipping-btn__content">
                         <input
@@ -197,4 +220,10 @@ class Shipping extends Component {
     }
 }
 
-export default Shipping;
+const mapStateToProps = state => {
+    return {
+        products: state.products
+    };
+};
+
+export default connect(mapStateToProps)(Shipping);
