@@ -38,6 +38,9 @@
 }
 
 .cart-item__trash-content {
+    border: none;
+    background-color: transparent;
+    outline: none;
     position: absolute;
     top: 20px;
     right: 15px;

@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import { FaTrashAlt } from "react-icons/fa";
-import { changeQuantityProduct } from "../../store/product/actions";
+import {
+    changeQuantityProduct,
+    deleteProduct
+} from "../../store/product/actions";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { connect } from "react-redux";
+import services from "../../services";
 import "./style.css";
 
 class CartItem extends Component {
@@ -11,6 +15,7 @@ class CartItem extends Component {
         this.handleQuantityChange = this.handleQuantityChange.bind(this);
         this.handleQuantityIncrement = this.handleQuantityIncrement.bind(this);
         this.handleQuantityDecrement = this.handleQuantityDecrement.bind(this);
+        this.handleDeleteProduct = this.handleDeleteProduct.bind(this);
     }
 
     handleQuantityChange(event) {
@@ -47,6 +52,12 @@ class CartItem extends Component {
         }
     }
 
+    async handleDeleteProduct() {
+        await services.delete(`product/${this.props.id}`).then(response => {
+            this.props.deleteProduct(this.props.id);
+        });
+    }
+
     render() {
         const { id, title, description, quantity, price } = this.props;
         return (
@@ -67,9 +78,12 @@ class CartItem extends Component {
                     </div>
                 </div>
                 <div className="cart-item__right">
-                    <div className="cart-item__trash-content">
+                    <button
+                        onClick={this.handleDeleteProduct}
+                        className="cart-item__trash-content"
+                    >
                         <FaTrashAlt className="cart-item__trash" />
-                    </div>
+                    </button>
                     <div className="cart-item__price-content">
                         <div className="cart-item__quantity">
                             <button onClick={this.handleQuantityDecrement}>
@@ -99,7 +113,8 @@ class CartItem extends Component {
 }
 
 const mapDispatchToProps = {
-    changeQuantityProduct
+    changeQuantityProduct,
+    deleteProduct
 };
 
 export default connect(null, mapDispatchToProps)(CartItem);

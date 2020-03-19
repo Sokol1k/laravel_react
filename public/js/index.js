@@ -4065,7 +4065,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".cart-item {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    padding: 20px 15px 20px 15px;\r\n    border-bottom: 1px solid #eee;\r\n    position: relative;\r\n}\r\n\r\n.cart-item__left {\r\n    display: flex;\r\n    width: 60%;\r\n    border-right: 1px solid #eee;\r\n    padding: 0 100px 30px 0;\r\n}\r\n\r\n.cart-item__right {\r\n    display: flex;\r\n    width: 20%;\r\n    flex-direction: column;\r\n    justify-content: space-between;\r\n}\r\n\r\n.cart-item__image {\r\n    width: 100px;\r\n    box-shadow: 0px 5px 15px -10px rgba(0, 0, 0, 0.75);\r\n    border-radius: 15px;\r\n}\r\n\r\n.cart-item__content {\r\n    width: 100%;\r\n    margin-left: 20px;\r\n}\r\n\r\n.cart-item__description {\r\n    margin-top: 15px;\r\n    opacity: 0.5;\r\n}\r\n\r\n.cart-item__trash-content {\r\n    position: absolute;\r\n    top: 20px;\r\n    right: 15px;\r\n    color: #bbb;\r\n}\r\n\r\n.cart-item__trash {\r\n    cursor: pointer;\r\n}\r\n\r\n.cart-item__price-content {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n}\r\n\r\n.cart-item__quantity input {\r\n    text-align: center;\r\n    color: #bbb;\r\n    width: 30px;\r\n    border: none;\r\n    outline: none;\r\n}\r\n\r\n.cart-item__quantity button {\r\n    border: 1px solid #bbb;\r\n    width: 30px;\r\n    height: 30px;\r\n    text-align: center;\r\n    font-size: 20px;\r\n    color: #bbb;\r\n    background-color: transparent;\r\n    text-decoration: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n}", ""]);
+exports.push([module.i, ".cart-item {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    padding: 20px 15px 20px 15px;\r\n    border-bottom: 1px solid #eee;\r\n    position: relative;\r\n}\r\n\r\n.cart-item__left {\r\n    display: flex;\r\n    width: 60%;\r\n    border-right: 1px solid #eee;\r\n    padding: 0 100px 30px 0;\r\n}\r\n\r\n.cart-item__right {\r\n    display: flex;\r\n    width: 20%;\r\n    flex-direction: column;\r\n    justify-content: space-between;\r\n}\r\n\r\n.cart-item__image {\r\n    width: 100px;\r\n    box-shadow: 0px 5px 15px -10px rgba(0, 0, 0, 0.75);\r\n    border-radius: 15px;\r\n}\r\n\r\n.cart-item__content {\r\n    width: 100%;\r\n    margin-left: 20px;\r\n}\r\n\r\n.cart-item__description {\r\n    margin-top: 15px;\r\n    opacity: 0.5;\r\n}\r\n\r\n.cart-item__trash-content {\r\n    border: none;\r\n    background-color: transparent;\r\n    outline: none;\r\n    position: absolute;\r\n    top: 20px;\r\n    right: 15px;\r\n    color: #bbb;\r\n}\r\n\r\n.cart-item__trash {\r\n    cursor: pointer;\r\n}\r\n\r\n.cart-item__price-content {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n}\r\n\r\n.cart-item__quantity input {\r\n    text-align: center;\r\n    color: #bbb;\r\n    width: 30px;\r\n    border: none;\r\n    outline: none;\r\n}\r\n\r\n.cart-item__quantity button {\r\n    border: 1px solid #bbb;\r\n    width: 30px;\r\n    height: 30px;\r\n    text-align: center;\r\n    font-size: 20px;\r\n    color: #bbb;\r\n    background-color: transparent;\r\n    text-decoration: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n}", ""]);
 
 // exports
 
@@ -48866,16 +48866,25 @@ if(false) {}
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
-/* harmony import */ var _store_product_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../store/product/actions */ "./resources/js/store/product/actions.js");
-/* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-loading-skeleton */ "./node_modules/react-loading-skeleton/lib/index.js");
-/* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./style.css */ "./resources/js/components/CartItem/style.css");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
+/* harmony import */ var _store_product_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../store/product/actions */ "./resources/js/store/product/actions.js");
+/* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-loading-skeleton */ "./node_modules/react-loading-skeleton/lib/index.js");
+/* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services */ "./resources/js/services.js");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./style.css */ "./resources/js/components/CartItem/style.css");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_7__);
+
+
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -48900,6 +48909,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var CartItem = /*#__PURE__*/function (_Component) {
   _inherits(CartItem, _Component);
 
@@ -48912,6 +48922,7 @@ var CartItem = /*#__PURE__*/function (_Component) {
     _this.handleQuantityChange = _this.handleQuantityChange.bind(_assertThisInitialized(_this));
     _this.handleQuantityIncrement = _this.handleQuantityIncrement.bind(_assertThisInitialized(_this));
     _this.handleQuantityDecrement = _this.handleQuantityDecrement.bind(_assertThisInitialized(_this));
+    _this.handleDeleteProduct = _this.handleDeleteProduct.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -48955,6 +48966,35 @@ var CartItem = /*#__PURE__*/function (_Component) {
       }
     }
   }, {
+    key: "handleDeleteProduct",
+    value: function () {
+      var _handleDeleteProduct = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var _this2 = this;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _services__WEBPACK_IMPORTED_MODULE_6__["default"]["delete"]("product/".concat(this.props.id)).then(function (response) {
+                  _this2.props.deleteProduct(_this2.props.id);
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function handleDeleteProduct() {
+        return _handleDeleteProduct.apply(this, arguments);
+      }
+
+      return handleDeleteProduct;
+    }()
+  }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -48963,51 +49003,53 @@ var CartItem = /*#__PURE__*/function (_Component) {
           description = _this$props.description,
           quantity = _this$props.quantity,
           price = _this$props.price;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "cart-item"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "cart-item__left"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
         className: "cart-item__image",
         src: "/img/default.jpg",
         alt: "Image"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "cart-item__content"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, title || react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3___default.a, null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", null, title || react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_4___default.a, null)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "cart-item__description"
-      }, description || react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      }, description || react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_4___default.a, {
         count: 3
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "cart-item__right"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+        onClick: this.handleDeleteProduct,
         className: "cart-item__trash-content"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__["FaTrashAlt"], {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__["FaTrashAlt"], {
         className: "cart-item__trash"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "cart-item__price-content"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "cart-item__quantity"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         onClick: this.handleQuantityDecrement
-      }, "-"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "-"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
         type: "number",
         min: "1",
         max: "50",
         value: quantity,
         onChange: this.handleQuantityChange
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         onClick: this.handleQuantityIncrement
-      }, "+")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, quantity * price ? (quantity * price).toFixed(2) + " €" : "0 €"))));
+      }, "+")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", null, quantity * price ? (quantity * price).toFixed(2) + " €" : "0 €"))));
     }
   }]);
 
   return CartItem;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
 
 var mapDispatchToProps = {
-  changeQuantityProduct: _store_product_actions__WEBPACK_IMPORTED_MODULE_2__["changeQuantityProduct"]
+  changeQuantityProduct: _store_product_actions__WEBPACK_IMPORTED_MODULE_3__["changeQuantityProduct"],
+  deleteProduct: _store_product_actions__WEBPACK_IMPORTED_MODULE_3__["deleteProduct"]
 };
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["connect"])(null, mapDispatchToProps)(CartItem));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_5__["connect"])(null, mapDispatchToProps)(CartItem));
 
 /***/ }),
 
@@ -49189,17 +49231,20 @@ Object.freeze(instance);
 /*!***********************************************!*\
   !*** ./resources/js/store/product/actions.js ***!
   \***********************************************/
-/*! exports provided: SET_PRODUCTS, CHANGE_QUANTITY_PRODUCT, setProducts, changeQuantityProduct */
+/*! exports provided: SET_PRODUCTS, CHANGE_QUANTITY_PRODUCT, DELETE_PRODUCT, setProducts, changeQuantityProduct, deleteProduct */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_PRODUCTS", function() { return SET_PRODUCTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHANGE_QUANTITY_PRODUCT", function() { return CHANGE_QUANTITY_PRODUCT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_PRODUCT", function() { return DELETE_PRODUCT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setProducts", function() { return setProducts; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "changeQuantityProduct", function() { return changeQuantityProduct; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteProduct", function() { return deleteProduct; });
 var SET_PRODUCTS = "SET_PRODUCTS";
 var CHANGE_QUANTITY_PRODUCT = "CHANGE_QUANTITY_PRODUCT";
+var DELETE_PRODUCT = "DELETE_PRODUCT";
 var setProducts = function setProducts(products) {
   return {
     type: SET_PRODUCTS,
@@ -49210,6 +49255,12 @@ var changeQuantityProduct = function changeQuantityProduct(product) {
   return {
     type: CHANGE_QUANTITY_PRODUCT,
     payload: product
+  };
+};
+var deleteProduct = function deleteProduct(id) {
+  return {
+    type: DELETE_PRODUCT,
+    payload: id
   };
 };
 
@@ -49241,19 +49292,41 @@ var productsReducer = function productsReducer() {
 
   switch (action.type) {
     case _actions__WEBPACK_IMPORTED_MODULE_0__["SET_PRODUCTS"]:
-      return action.payload;
+      {
+        return action.payload;
+      }
 
     case _actions__WEBPACK_IMPORTED_MODULE_0__["CHANGE_QUANTITY_PRODUCT"]:
-      var _state = _toArray(state),
-          products = _state.slice(0);
+      {
+        var _state = _toArray(state),
+            products = _state.slice(0);
 
-      products.forEach(function (product) {
-        if (product.id == action.payload.id) {
-          product.quantity = action.payload.quantity;
-          product.total_price = product.quantity * product.price;
-        }
-      });
-      return products;
+        products.forEach(function (product) {
+          if (product.id == action.payload.id) {
+            product.quantity = action.payload.quantity;
+            product.total_price = product.quantity * product.price;
+          }
+        });
+        return products;
+      }
+
+    case _actions__WEBPACK_IMPORTED_MODULE_0__["DELETE_PRODUCT"]:
+      {
+        var _state2 = _toArray(state),
+            _products = _state2.slice(0);
+
+        var index = undefined;
+
+        _products.map(function (product, i) {
+          if (product.id == action.payload) {
+            index = i;
+          }
+        });
+
+        _products.splice(index, 1);
+
+        return _products;
+      }
 
     default:
       return state;
