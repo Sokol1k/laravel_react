@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import services from "../../services";
 
 import "./style.css";
+import "./media.css";
 
 class Shipping extends Component {
     constructor(props) {
@@ -184,7 +185,7 @@ class Shipping extends Component {
                             Shipping options
                         </label>
                         {this.totalPrice(this.props.products) >= 300 ? (
-                            <div>Free express shipping!</div>
+                            <div className="free-shipping">Free express shipping!</div>
                         ) : (
                             <div>
                                 <select

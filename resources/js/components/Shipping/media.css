@@ -1,0 +1,11 @@
+@media (max-width: 320px) {
+    .shipping-form-group{
+        flex-direction: column;
+    }
+    .shipping-input {
+        width: 100%;
+    }
+    .shipping-select {
+        width: 100%;
+    }
+}

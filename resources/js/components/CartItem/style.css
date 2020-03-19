@@ -39,7 +39,7 @@
 
 .cart-item__trash-content {
     border: none;
-    background-color: transparent;
+    background-color: white;
     outline: none;
     position: absolute;
     top: 20px;

@@ -4053,6 +4053,25 @@ exports.push([module.i, ".cart__bottom {\r\n    text-align: right;\r\n}\r\n\r\n.
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/CartItem/media.css":
+/*!************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/postcss-loader/src??ref--5-2!./resources/js/components/CartItem/media.css ***!
+  \************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "@media (max-width: 880px) {\r\n    .cart-item {\r\n        flex-direction: column;\r\n    }\r\n    .cart-item__left {\r\n        border: none;\r\n        padding: 0 0 30px 0;\r\n        width: 100%;\r\n    }\r\n    .cart-item__right {\r\n        width: 200px;\r\n    }\r\n}\r\n\r\n@media (max-width: 375px) {\r\n    .cart-item__left {\r\n        display: flex;\r\n        flex-direction: column;\r\n        text-align: center;\r\n    }\r\n    .cart-item__image {\r\n        margin-bottom: 20px;\r\n    }\r\n    .cart-item__content {\r\n        margin: 0;\r\n    }\r\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/CartItem/style.css":
 /*!************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--5-1!./node_modules/postcss-loader/src??ref--5-2!./resources/js/components/CartItem/style.css ***!
@@ -4065,7 +4084,26 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".cart-item {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    padding: 20px 15px 20px 15px;\r\n    border-bottom: 1px solid #eee;\r\n    position: relative;\r\n}\r\n\r\n.cart-item__left {\r\n    display: flex;\r\n    width: 60%;\r\n    border-right: 1px solid #eee;\r\n    padding: 0 100px 30px 0;\r\n}\r\n\r\n.cart-item__right {\r\n    display: flex;\r\n    width: 20%;\r\n    flex-direction: column;\r\n    justify-content: space-between;\r\n}\r\n\r\n.cart-item__image {\r\n    width: 100px;\r\n    box-shadow: 0px 5px 15px -10px rgba(0, 0, 0, 0.75);\r\n    border-radius: 15px;\r\n}\r\n\r\n.cart-item__content {\r\n    width: 100%;\r\n    margin-left: 20px;\r\n}\r\n\r\n.cart-item__description {\r\n    margin-top: 15px;\r\n    opacity: 0.5;\r\n}\r\n\r\n.cart-item__trash-content {\r\n    border: none;\r\n    background-color: transparent;\r\n    outline: none;\r\n    position: absolute;\r\n    top: 20px;\r\n    right: 15px;\r\n    color: #bbb;\r\n}\r\n\r\n.cart-item__trash {\r\n    cursor: pointer;\r\n}\r\n\r\n.cart-item__price-content {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n}\r\n\r\n.cart-item__quantity input {\r\n    text-align: center;\r\n    color: #bbb;\r\n    width: 30px;\r\n    border: none;\r\n    outline: none;\r\n}\r\n\r\n.cart-item__quantity button {\r\n    border: 1px solid #bbb;\r\n    width: 30px;\r\n    height: 30px;\r\n    text-align: center;\r\n    font-size: 20px;\r\n    color: #bbb;\r\n    background-color: transparent;\r\n    text-decoration: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n}", ""]);
+exports.push([module.i, ".cart-item {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    padding: 20px 15px 20px 15px;\r\n    border-bottom: 1px solid #eee;\r\n    position: relative;\r\n}\r\n\r\n.cart-item__left {\r\n    display: flex;\r\n    width: 60%;\r\n    border-right: 1px solid #eee;\r\n    padding: 0 100px 30px 0;\r\n}\r\n\r\n.cart-item__right {\r\n    display: flex;\r\n    width: 20%;\r\n    flex-direction: column;\r\n    justify-content: space-between;\r\n}\r\n\r\n.cart-item__image {\r\n    width: 100px;\r\n    box-shadow: 0px 5px 15px -10px rgba(0, 0, 0, 0.75);\r\n    border-radius: 15px;\r\n}\r\n\r\n.cart-item__content {\r\n    width: 100%;\r\n    margin-left: 20px;\r\n}\r\n\r\n.cart-item__description {\r\n    margin-top: 15px;\r\n    opacity: 0.5;\r\n}\r\n\r\n.cart-item__trash-content {\r\n    border: none;\r\n    background-color: white;\r\n    outline: none;\r\n    position: absolute;\r\n    top: 20px;\r\n    right: 15px;\r\n    color: #bbb;\r\n}\r\n\r\n.cart-item__trash {\r\n    cursor: pointer;\r\n}\r\n\r\n.cart-item__price-content {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n}\r\n\r\n.cart-item__quantity input {\r\n    text-align: center;\r\n    color: #bbb;\r\n    width: 30px;\r\n    border: none;\r\n    outline: none;\r\n}\r\n\r\n.cart-item__quantity button {\r\n    border: 1px solid #bbb;\r\n    width: 30px;\r\n    height: 30px;\r\n    text-align: center;\r\n    font-size: 20px;\r\n    color: #bbb;\r\n    background-color: transparent;\r\n    text-decoration: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/Shipping/media.css":
+/*!************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/postcss-loader/src??ref--5-2!./resources/js/components/Shipping/media.css ***!
+  \************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "@media (max-width: 320px) {\r\n    .shipping-form-group{\r\n        flex-direction: column;\r\n    }\r\n    .shipping-input {\r\n        width: 100%;\r\n    }\r\n    .shipping-select {\r\n        width: 100%;\r\n    }\r\n}", ""]);
 
 // exports
 
@@ -4084,7 +4122,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".shipping-form {\r\n    max-width: 400px;\r\n    margin: 0 auto;\r\n}\r\n\r\n.shipping-form-group {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    margin: 10px 0;\r\n}\r\n\r\n.shipping-input {\r\n    width: 240px;\r\n}\r\n\r\n.shipping-select {\r\n    width: 244px;\r\n}\r\n\r\n.shipping-error {\r\n    color: red;\r\n}\r\n\r\n.shipping-btn__content {\r\n    text-align: right;\r\n    margin-top: 30px;\r\n}\r\n\r\n.shipping-btn {\r\n    text-transform: uppercase;\r\n    text-decoration: none;\r\n    border: 1px solid #333;\r\n    background-color: #bbb;\r\n    color: #333;\r\n    padding: 9px 35px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.shipping-btn:disabled {\r\n    opacity: 0.5;\r\n}", ""]);
+exports.push([module.i, ".shipping-form {\r\n    max-width: 400px;\r\n    margin: 0 auto;\r\n}\r\n\r\n.shipping-form-group {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    margin: 10px 0;\r\n}\r\n\r\n.shipping-input {\r\n    width: 240px;\r\n}\r\n\r\n.shipping-select {\r\n    width: 244px;\r\n}\r\n\r\n.shipping-error {\r\n    color: red;\r\n}\r\n\r\n.shipping-btn__content {\r\n    text-align: right;\r\n    margin-top: 30px;\r\n}\r\n\r\n.shipping-btn {\r\n    text-transform: uppercase;\r\n    text-decoration: none;\r\n    border: 1px solid #333;\r\n    background-color: #bbb;\r\n    color: #333;\r\n    padding: 9px 35px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.shipping-btn:disabled {\r\n    opacity: 0.5;\r\n}\r\n\r\n.free-shipping {\r\n    color: limegreen;\r\n}", ""]);
 
 // exports
 
@@ -48925,6 +48963,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services */ "./resources/js/services.js");
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./style.css */ "./resources/js/components/CartItem/style.css");
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _media_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./media.css */ "./resources/js/components/CartItem/media.css");
+/* harmony import */ var _media_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_media_css__WEBPACK_IMPORTED_MODULE_8__);
 
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -48948,6 +48988,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -49100,6 +49141,36 @@ var mapDispatchToProps = {
 
 /***/ }),
 
+/***/ "./resources/js/components/CartItem/media.css":
+/*!****************************************************!*\
+  !*** ./resources/js/components/CartItem/media.css ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/postcss-loader/src??ref--5-2!./media.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/CartItem/media.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./resources/js/components/CartItem/style.css":
 /*!****************************************************!*\
   !*** ./resources/js/components/CartItem/style.css ***!
@@ -49151,6 +49222,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services */ "./resources/js/services.js");
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./style.css */ "./resources/js/components/Shipping/style.css");
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _media_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./media.css */ "./resources/js/components/Shipping/media.css");
+/* harmony import */ var _media_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_media_css__WEBPACK_IMPORTED_MODULE_7__);
 
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -49176,6 +49249,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -49363,7 +49437,9 @@ var Shipping = /*#__PURE__*/function (_Component) {
         className: "shipping-form-group"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
         htmlFor: "shipping_options"
-      }, "Shipping options"), this.totalPrice(this.props.products) >= 300 ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, "Free express shipping!") : react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
+      }, "Shipping options"), this.totalPrice(this.props.products) >= 300 ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "free-shipping"
+      }, "Free express shipping!") : react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
         name: "shipping_options",
         className: "shipping-select",
         value: this.state.shipping_options,
@@ -49395,6 +49471,36 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["connect"])(mapStateToProps)(Shipping));
+
+/***/ }),
+
+/***/ "./resources/js/components/Shipping/media.css":
+/*!****************************************************!*\
+  !*** ./resources/js/components/Shipping/media.css ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/postcss-loader/src??ref--5-2!./media.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/Shipping/media.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
 
 /***/ }),
 

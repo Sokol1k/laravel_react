@@ -40,3 +40,7 @@
 .shipping-btn:disabled {
     opacity: 0.5;
 }
+
+.free-shipping {
+    color: limegreen;
+}

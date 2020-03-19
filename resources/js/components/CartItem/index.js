@@ -8,6 +8,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { connect } from "react-redux";
 import services from "../../services";
 import "./style.css";
+import "./media.css";
 
 class CartItem extends Component {
     constructor(props) {
