@@ -4046,7 +4046,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".cart__bottom {\r\n    text-align: right;\r\n}\r\n\r\n.cart__btn-content {\r\n    margin-top: 10px;\r\n}\r\n\r\n.cart__total-price {\r\n    margin: 25px 0;\r\n}\r\n\r\n.cart__btn {\r\n    text-transform: uppercase;\r\n    text-decoration: none;\r\n    border: 2px solid #333;\r\n    background-color: #bbb;\r\n    color: #333;\r\n    padding: 7px 35px;\r\n    border-radius: 3px;\r\n    transition: all .3s;\r\n}", ""]);
+exports.push([module.i, ".cart__bottom {\r\n    text-align: right;\r\n}\r\n\r\n.cart__btn-content {\r\n    margin-top: 10px;\r\n}\r\n\r\n.cart__total-price {\r\n    margin: 25px 0;\r\n}\r\n\r\n.cart__btn {\r\n    text-transform: uppercase;\r\n    text-decoration: none;\r\n    border: 2px solid #333;\r\n    background-color: #bbb;\r\n    color: #333;\r\n    padding: 7px 35px;\r\n    border-radius: 3px;\r\n}", ""]);
 
 // exports
 
@@ -4084,7 +4084,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".shipping-form {\r\n    max-width: 400px;\r\n    margin: 0 auto;\r\n}\r\n\r\n.shipping-form-group {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    margin: 10px 0;\r\n}\r\n\r\n.shipping-input {\r\n    width: 240px;\r\n}\r\n\r\n.shipping-select {\r\n    width: 244px;\r\n}\r\n\r\n.shipping-error {\r\n    color: red;\r\n}\r\n\r\n.shipping-btn__content {\r\n    text-align: right;\r\n    margin-top: 30px;\r\n}\r\n\r\n.shipping-btn {\r\n    text-transform: uppercase;\r\n    text-decoration: none;\r\n    border: 1px solid #333;\r\n    background-color: #bbb;\r\n    color: #333;\r\n    padding: 9px 35px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n", ""]);
 
 // exports
 
@@ -49128,14 +49128,22 @@ if(false) {}
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var simple_react_validator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! simple-react-validator */ "./node_modules/simple-react-validator/dist/simple-react-validator.min.js");
-/* harmony import */ var simple_react_validator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(simple_react_validator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services */ "./resources/js/services.js");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style.css */ "./resources/js/components/Shipping/style.css");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var simple_react_validator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! simple-react-validator */ "./node_modules/simple-react-validator/dist/simple-react-validator.min.js");
+/* harmony import */ var simple_react_validator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(simple_react_validator__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services */ "./resources/js/services.js");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./style.css */ "./resources/js/components/Shipping/style.css");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_4__);
+
+
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -49176,7 +49184,7 @@ var Shipping = /*#__PURE__*/function (_Component) {
       email: "",
       shipping_options: "Free shipping"
     };
-    _this.validator = new simple_react_validator__WEBPACK_IMPORTED_MODULE_1___default.a();
+    _this.validator = new simple_react_validator__WEBPACK_IMPORTED_MODULE_2___default.a();
     _this.handleChangeForm = _this.handleChangeForm.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
@@ -49189,81 +49197,147 @@ var Shipping = /*#__PURE__*/function (_Component) {
     }
   }, {
     key: "handleSubmit",
-    value: function handleSubmit(event) {
-      event.preventDefault();
+    value: function () {
+      var _handleSubmit = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(event) {
+        var _this2 = this;
 
-      if (this.validator.allValid()) {
-        var data = {
-          name: this.state.name,
-          address: this.state.address,
-          phone: this.state.phone || null,
-          email: this.state.email || null,
-          shipping_options: this.state.shipping_options
-        };
-        _services__WEBPACK_IMPORTED_MODULE_2__["default"].post("shipping", data).then(function (response) {
-          alert('Order is processed!');
-        });
-      } else {
-        this.validator.showMessages();
-        this.forceUpdate();
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                event.preventDefault();
+
+                if (!this.validator.allValid()) {
+                  _context.next = 7;
+                  break;
+                }
+
+                data = {
+                  name: this.state.name,
+                  address: this.state.address,
+                  phone: this.state.phone || null,
+                  email: this.state.email || null,
+                  shipping_options: this.state.shipping_options
+                };
+                _context.next = 5;
+                return _services__WEBPACK_IMPORTED_MODULE_3__["default"].post("shipping", data).then(function (response) {
+                  alert("Order is processed!");
+
+                  _this2.setState({
+                    name: "",
+                    address: "",
+                    phone: "",
+                    email: "",
+                    shipping_options: "Free shipping"
+                  });
+                });
+
+              case 5:
+                _context.next = 9;
+                break;
+
+              case 7:
+                this.validator.showMessages();
+                this.forceUpdate();
+
+              case 9:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function handleSubmit(_x) {
+        return _handleSubmit.apply(this, arguments);
       }
-    }
+
+      return handleSubmit;
+    }()
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
+        className: "shipping-form",
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "shipping-form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
         htmlFor: "name"
-      }, "Name*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Name*"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
         type: "text",
         name: "name",
+        className: "shipping-input",
         value: this.state.name,
         onChange: this.handleChangeForm
-      }), this.validator.message("name", this.state.name, "required|max:255")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("small", {
+        className: "shipping-error"
+      }, this.validator.message("name", this.state.name, "required|max:255")))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "shipping-form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
         htmlFor: "address"
-      }, "Address*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Address*"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
         type: "text",
         name: "address",
+        className: "shipping-input",
         value: this.state.address,
         onChange: this.handleChangeForm
-      }), this.validator.message("address", this.state.address, "required|max:150")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("small", {
+        className: "shipping-error"
+      }, this.validator.message("address", this.state.address, "required|max:150")))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "shipping-form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
         htmlFor: "phone"
-      }, "Phone"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Phone"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
         type: "number",
         name: "phone",
+        className: "shipping-input",
         value: this.state.phone,
         onChange: this.handleChangeForm
-      }), this.validator.message("phone", this.state.phone, "max:17")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("small", {
+        className: "shipping-error"
+      }, this.validator.message("phone", this.state.phone, "max:17")))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "shipping-form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
         htmlFor: "email"
-      }, "Email"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Email"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
         type: "text",
         name: "email",
+        className: "shipping-input",
         value: this.state.email,
         onChange: this.handleChangeForm
-      }), this.validator.message("email", this.state.email, "email|max:255")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("small", {
+        className: "shipping-error"
+      }, this.validator.message("email", this.state.email, "email|max:255")))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "shipping-form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
         htmlFor: "shipping_options"
-      }, "Shipping options"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "Shipping options"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
         name: "shipping_options",
+        className: "shipping-select",
         value: this.state.shipping_options,
         onChange: this.handleChangeForm
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
         value: "Free shipping"
-      }, "Free shipping"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "Free shipping"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
         value: "Express shipping"
-      }, "Express shipping- additional 9.99 \u20AC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "Express shipping- additional 9.99 \u20AC"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
         value: "Courier shipping"
-      }, "Courier shipping - additional 19.99 \u20AC"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Courier shipping - additional 19.99 \u20AC")))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "shipping-btn__content"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+        className: "shipping-btn",
         type: "submit",
         value: "PAY"
-      })));
+      }))));
     }
   }]);
 
   return Shipping;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Shipping);
 

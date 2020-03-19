@@ -25,7 +25,7 @@ class Shipping extends Component {
         });
     }
 
-    handleSubmit(event) {
+    async handleSubmit(event) {
         event.preventDefault();
 
         if (this.validator.allValid()) {
@@ -36,8 +36,15 @@ class Shipping extends Component {
                 email: this.state.email || null,
                 shipping_options: this.state.shipping_options
             };
-            services.post("shipping", data).then(response => {
-                alert('Order is processed!')
+            await services.post("shipping", data).then(response => {
+                alert("Order is processed!");
+                this.setState({
+                    name: "",
+                    address: "",
+                    phone: "",
+                    email: "",
+                    shipping_options: "Free shipping"
+                });
             });
         } else {
             this.validator.showMessages();
@@ -48,82 +55,113 @@ class Shipping extends Component {
     render() {
         return (
             <div className="container">
-                <form onSubmit={this.handleSubmit}>
-                    <div>
+                <form className="shipping-form" onSubmit={this.handleSubmit}>
+                    <div className="shipping-form-group">
                         <label htmlFor="name">Name*</label>
-                        <input
-                            type="text"
-                            name="name"
-                            value={this.state.name}
-                            onChange={this.handleChangeForm}
-                        ></input>
-                        {this.validator.message(
-                            "name",
-                            this.state.name,
-                            "required|max:255"
-                        )}
+                        <div>
+                            <input
+                                type="text"
+                                name="name"
+                                className="shipping-input"
+                                value={this.state.name}
+                                onChange={this.handleChangeForm}
+                            ></input>
+                            <small className="shipping-error">
+                                {this.validator.message(
+                                    "name",
+                                    this.state.name,
+                                    "required|max:255"
+                                )}
+                            </small>
+                        </div>
                     </div>
-                    <div>
+                    <div className="shipping-form-group">
                         <label htmlFor="address">Address*</label>
-                        <input
-                            type="text"
-                            name="address"
-                            value={this.state.address}
-                            onChange={this.handleChangeForm}
-                        ></input>
-                        {this.validator.message(
-                            "address",
-                            this.state.address,
-                            "required|max:150"
-                        )}
+                        <div>
+                            <input
+                                type="text"
+                                name="address"
+                                className="shipping-input"
+                                value={this.state.address}
+                                onChange={this.handleChangeForm}
+                            ></input>
+                            <small className="shipping-error">
+                                {this.validator.message(
+                                    "address",
+                                    this.state.address,
+                                    "required|max:150"
+                                )}
+                            </small>
+                        </div>
                     </div>
-                    <div>
+                    <div className="shipping-form-group">
                         <label htmlFor="phone">Phone</label>
-                        <input
-                            type="number"
-                            name="phone"
-                            value={this.state.phone}
-                            onChange={this.handleChangeForm}
-                        ></input>
-                        {this.validator.message(
-                            "phone",
-                            this.state.phone,
-                            "max:17"
-                        )}
+                        <div>
+                            <input
+                                type="number"
+                                name="phone"
+                                className="shipping-input"
+                                value={this.state.phone}
+                                onChange={this.handleChangeForm}
+                            ></input>
+                            <small className="shipping-error">
+                                {this.validator.message(
+                                    "phone",
+                                    this.state.phone,
+                                    "max:17"
+                                )}
+                            </small>
+                        </div>
                     </div>
-                    <div>
+                    <div className="shipping-form-group">
                         <label htmlFor="email">Email</label>
-                        <input
-                            type="text"
-                            name="email"
-                            value={this.state.email}
-                            onChange={this.handleChangeForm}
-                        ></input>
-                        {this.validator.message(
-                            "email",
-                            this.state.email,
-                            "email|max:255"
-                        )}
+                        <div>
+                            <input
+                                type="text"
+                                name="email"
+                                className="shipping-input"
+                                value={this.state.email}
+                                onChange={this.handleChangeForm}
+                            ></input>
+                            <small className="shipping-error">
+                                {this.validator.message(
+                                    "email",
+                                    this.state.email,
+                                    "email|max:255"
+                                )}
+                            </small>
+                        </div>
                     </div>
-                    <div>
+                    <div className="shipping-form-group">
                         <label htmlFor="shipping_options">
                             Shipping options
                         </label>
-                        <select
-                            name="shipping_options"
-                            value={this.state.shipping_options}
-                            onChange={this.handleChangeForm}
-                        >
-                            <option value="Free shipping">Free shipping</option>
-                            <option value="Express shipping">
-                                Express shipping- additional 9.99 €
-                            </option>
-                            <option value="Courier shipping">
-                                Courier shipping - additional 19.99 €
-                            </option>
-                        </select>
+                        <div>
+                            <select
+                                name="shipping_options"
+                                className="shipping-select"
+                                value={this.state.shipping_options}
+                                onChange={this.handleChangeForm}
+                            >
+                                <option value="Free shipping">
+                                    Free shipping
+                                </option>
+                                <option value="Express shipping">
+                                    Express shipping- additional 9.99 €
+                                </option>
+                                <option value="Courier shipping">
+                                    Courier shipping - additional 19.99 €
+                                </option>
+                            </select>
+                        </div>
                     </div>
-                    <input type="submit" value="PAY" />
+                    <div className="shipping-btn__content">
+                        <input
+                            className="shipping-btn"
+                            type="submit"
+                            value="PAY"
+                        />
+                    </div>
                 </form>
             </div>
         );

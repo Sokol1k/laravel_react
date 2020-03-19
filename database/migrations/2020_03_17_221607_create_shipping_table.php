@@ -17,8 +17,8 @@ class CreateShippingTable extends Migration
             $table->id();
             $table->string('name')->nullable(false);
             $table->string('address')->nullable(false);
-            $table->string('phone', 18);
-            $table->string('email');
+            $table->string('phone', 18)->nullable(true);
+            $table->string('email')->nullable(true);
             $table->enum('shipping_options', ['Free shipping', 'Express shipping', 'Courier shipping', 'Free express shipping']);
             $table->timestamps();
         });
