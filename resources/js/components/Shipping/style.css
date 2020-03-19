@@ -6,19 +6,32 @@
 .shipping-form-group {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: 10px 0;
 }
 
+.shipping-form-group label {
+    font-weight: 600;
+}
+
 .shipping-input {
-    width: 240px;
+    padding: 7px;
+    width: 224px;
+    border-radius: 3px;
+    border: 1px solid #999;
 }
 
 .shipping-select {
-    width: 244px;
+    padding: 7px;
+    width: 240px;
+    border-radius: 3px;
+    border: 1px solid #999;
 }
 
-.shipping-error {
+.shipping-error div{
+    width: 240px;
     color: red;
+    word-wrap: break-word;
 }
 
 .shipping-btn__content {
@@ -39,6 +52,7 @@
 
 .shipping-btn:disabled {
     opacity: 0.5;
+    cursor: default;
 }
 
 .free-shipping {

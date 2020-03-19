@@ -135,6 +135,7 @@ class Shipping extends Component {
                             <MaskedInput
                                 name="phone"
                                 className="shipping-input"
+                                guide={false}
                                 mask={[
                                     "+",
                                     "3",
@@ -162,7 +163,7 @@ class Shipping extends Component {
                                 {this.validator.message(
                                     "phone",
                                     this.state.phone,
-                                    "max:17"
+                                    "min:17|max:17"
                                 )}
                             </small>
                         </div>

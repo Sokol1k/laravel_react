@@ -4103,7 +4103,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "@media (max-width: 320px) {\r\n    .shipping-form-group{\r\n        flex-direction: column;\r\n    }\r\n    .shipping-input {\r\n        width: 100%;\r\n    }\r\n    .shipping-select {\r\n        width: 100%;\r\n    }\r\n}", ""]);
+exports.push([module.i, "@media (max-width: 320px) {\r\n    .shipping-form-group{\r\n        flex-direction: column;\r\n        align-items: unset;\r\n    }\r\n    .shipping-input {\r\n        width: 94%;\r\n    }\r\n    .shipping-select {\r\n        width: 100%;\r\n    }\r\n    .shipping-error div {\r\n        width: 100%;\r\n    }\r\n}", ""]);
 
 // exports
 
@@ -4122,7 +4122,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".shipping-form {\r\n    max-width: 400px;\r\n    margin: 0 auto;\r\n}\r\n\r\n.shipping-form-group {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    margin: 10px 0;\r\n}\r\n\r\n.shipping-input {\r\n    width: 240px;\r\n}\r\n\r\n.shipping-select {\r\n    width: 244px;\r\n}\r\n\r\n.shipping-error {\r\n    color: red;\r\n}\r\n\r\n.shipping-btn__content {\r\n    text-align: right;\r\n    margin-top: 30px;\r\n}\r\n\r\n.shipping-btn {\r\n    text-transform: uppercase;\r\n    text-decoration: none;\r\n    border: 1px solid #333;\r\n    background-color: #bbb;\r\n    color: #333;\r\n    padding: 9px 35px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.shipping-btn:disabled {\r\n    opacity: 0.5;\r\n}\r\n\r\n.free-shipping {\r\n    color: limegreen;\r\n}", ""]);
+exports.push([module.i, ".shipping-form {\r\n    max-width: 400px;\r\n    margin: 0 auto;\r\n}\r\n\r\n.shipping-form-group {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    margin: 10px 0;\r\n}\r\n\r\n.shipping-form-group label {\r\n    font-weight: 600;\r\n}\r\n\r\n.shipping-input {\r\n    padding: 7px;\r\n    width: 224px;\r\n    border-radius: 3px;\r\n    border: 1px solid #999;\r\n}\r\n\r\n.shipping-select {\r\n    padding: 7px;\r\n    width: 240px;\r\n    border-radius: 3px;\r\n    border: 1px solid #999;\r\n}\r\n\r\n.shipping-error div{\r\n    width: 240px;\r\n    color: red;\r\n    word-wrap: break-word;\r\n}\r\n\r\n.shipping-btn__content {\r\n    text-align: right;\r\n    margin-top: 30px;\r\n}\r\n\r\n.shipping-btn {\r\n    text-transform: uppercase;\r\n    text-decoration: none;\r\n    border: 1px solid #333;\r\n    background-color: #bbb;\r\n    color: #333;\r\n    padding: 9px 35px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.shipping-btn:disabled {\r\n    opacity: 0.5;\r\n    cursor: default;\r\n}\r\n\r\n.free-shipping {\r\n    color: limegreen;\r\n}", ""]);
 
 // exports
 
@@ -49455,13 +49455,14 @@ var Shipping = /*#__PURE__*/function (_Component) {
       }, "Phone"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_text_mask__WEBPACK_IMPORTED_MODULE_3___default.a, {
         name: "phone",
         className: "shipping-input",
+        guide: false,
         mask: ["+", "3", "8", "(", /[0-9]/, /\d/, /\d/, ")", /\d/, /\d/, /\d/, "-", /\d/, /\d/, "-", /\d/, /\d/],
         placeholder: "+38",
         value: this.state.phone,
         onChange: this.handleChangeForm
       }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("small", {
         className: "shipping-error"
-      }, this.validator.message("phone", this.state.phone, "max:17")))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, this.validator.message("phone", this.state.phone, "min:17|max:17")))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "shipping-form-group"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
         htmlFor: "email"
